@@ -99,7 +99,7 @@ cleanupFiles () {
 
 # make the magic happen
 
-# checkdirectory
+checkdirectory
 
 echo -e "Welcome to Ghost External Links!"
 echo -e "This installer assumes that you haven't modified anything since you downloaded the plugin."
