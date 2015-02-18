@@ -81,6 +81,17 @@ installScript () {
 	cd ../../
 }
 
+injectReferences () {
+	# meditate: sed 's/.*Fedora.*/&\nCygwin/' file
+	cd ./content/themes
+	for folder in ${dirs[*]};
+	do
+		if [ sed -i '' 's|.*'"</body>"'.*|'"<script type="text/javascript" src="/assets/js/ghost-external-links.js"></script>&|" content/themes/one/default.hbs ]; then
+			echo -e "Installed script to $folder"
+		fi;
+	done
+}
+
 cleanupFiles () {
 	read wait
 	rm ./ghost-external-links/staged/*
