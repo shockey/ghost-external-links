@@ -49,9 +49,10 @@ collectWhitelist ()
 
 stageSource () 
 {
+	echo "Staging code with new whitelist"
 	mkdir ./ghost-external-links/staged
 	cp ./ghost-external-links/ghost-external-links.js ./ghost-external-links/staged/ghost-external-links.js
-	sed -i '' 's@// add your excluded domains here@$whitelistString@g' ./ghost-external-links/staged/ghost-external-links.js 
+	sed -i '' 's@// add your excluded domains here@'"$whitelistString"'@g' ./ghost-external-links/staged/ghost-external-links.js
 }
 
 
@@ -74,7 +75,7 @@ read action
 echo
 
 if [ $action = "install" ]; then
-	enumerateThemes
+	#enumerateThemesls
 	collectWhitelist # prompt the user for a whitelist of domains
 	stageSource # make a temporary derivative of the original source with the new whitelist
 	# installScript # copy the staged code into the theme directories
