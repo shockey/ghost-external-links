@@ -17,10 +17,10 @@ fi;
 
 enumerateThemes () 
 {
-local dirs=();
+dirs=();
 cd ./content/themes
 for file in ./*; do
-	local dirs=(${dirs[@]} $file)
+	dirs=(${dirs[@]} $file)
 done
 cd ../../
 echo -e 
