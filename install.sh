@@ -41,6 +41,7 @@ if [ $action = "install" ]; then
 	# stageSource # make a temporary derivative of the original source with the new whitelist injected
 	# installScript # copy the staged code into the theme directories
 	# injectReferences # inject references to our .js into themes
+	# cleanupFiles
 elif [ $action = "remove" ]; then
 	enumerateThemes
 	# removeScript
