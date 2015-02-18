@@ -1,14 +1,21 @@
 checkdirectory () 
 {
-if [ ! -d ./core ]; then # checks for Ghost blog core in current directory
-	echo -e "Exiting: current directory is not a Ghost root."
+if [ ! -d ./core ]; then # checks for Ghost blog in current directory
+	echo -e "Exiting: current directory is not a valid Ghost root."
 	echo -e "Tip: Leave this script where it is, but call it from the root of your Ghost installation."
 	exit 1
 else
-	echo -e "Directory check: OK"
+	echo -e "Core directory check: OK"
+fi;
+if [ ! -d ./content/themes ]; then # checks for Ghost blog in current directory
+	echo -e "Exiting: current directory is not a valid Ghost root."
+	echo -e "Tip: Leave this script where it is, but call it from the root of your Ghost installation."
+	exit 1
+else
+	echo -e "Theme directory check: OK"
 fi;
 if [ ! -f ./ghost-external-links/ghost-external-links.js ]; then # checks for js in correct relative path
-	echo -e "Exiting: could not find ghost-external-links.js in the script's directory."
+	echo -e "Exiting: could not find ghost-external-links.js."
 	exit
 else 
 	echo -e "File presence check: OK"
@@ -52,7 +59,7 @@ stageSource ()
 	echo "Staging code with new whitelist"
 	mkdir ./ghost-external-links/staged
 	cp ./ghost-external-links/ghost-external-links.js ./ghost-external-links/staged/ghost-external-links.js
-	sed -i '' 's@// add your excluded domains here@'"$whitelistString"'@g' ./ghost-external-links/staged/ghost-external-links.js
+	sed -i '' 's@// add your excluded domains here@'"$whitelistString"'@g' ./ghost-external-links/staged/ghost-external-links.jsf
 }
 
 
@@ -64,7 +71,7 @@ cleanupFiles () {
 
 # make the magic happen
 
-# checkdirectory
+checkdirectory
 
 echo -e "Welcome to Ghost External Links!"
 echo -e "This installer assumes that you haven't modified anything since you downloaded the plugin."
@@ -75,7 +82,7 @@ read action
 echo
 
 if [ $action = "install" ]; then
-	#enumerateThemesls
+	#enumerateThemes
 	collectWhitelist # prompt the user for a whitelist of domains
 	stageSource # make a temporary derivative of the original source with the new whitelist
 	# installScript # copy the staged code into the theme directories
