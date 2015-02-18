@@ -3,11 +3,7 @@
 It also includes an easy-to-use installer that makes up for the lack of a Ghost plugin engine.
 
 #Quick Start
-1. Clone this repository into your Ghost blog's root directory: `git clone https://github.com/kyleshockey/ghost-external-links.git`.
-2. Change directories to the git repo you just cloned: `cd ghost-external-links`.
-3. Make sure the installer script is executable: `chmod +x ./install.sh`.
-4. Change directories back to your Ghost root: `cd ../`.
-5. Run the installer:`./ghost-external-links/install.sh install`.
+1. Run this in your Terminal: `git clone https://github.com/kyleshockey/ghost-external-links.git && chmod +x ./ghost-external-links/install.sh && ./ghost-external-links/install.sh`.
 
 #Manual Installation
 1. Clone this repository into your Ghost blog's root directory: `git clone https://github.com/kyleshockey/ghost-external-links.git`.
