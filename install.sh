@@ -86,9 +86,8 @@ injectReferences () {
 	cd ./content/themes
 	for folder in ${dirs[*]};
 	do
-		if [ sed -i '' 's|.*'"</body>"'.*|'"<script type="text/javascript" src="/assets/js/ghost-external-links.js"></script>&|" content/themes/one/default.hbs ]; then
-			echo -e "Added code reference to $folder"
-		fi;
+		sed -i '' 's|.*'"</body>"'.*|'"<script type="text/javascript" src="/assets/js/ghost-external-links.js"></script>&|" content/themes/one/default.hbs
+		echo -e "Added code reference to $folder"
 	done
 }
 
