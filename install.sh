@@ -87,7 +87,7 @@ injectReferences () {
 	for folder in ${dirs[*]};
 	do
 		if [ sed -i '' 's|.*'"</body>"'.*|'"<script type="text/javascript" src="/assets/js/ghost-external-links.js"></script>&|" content/themes/one/default.hbs ]; then
-			echo -e "Installed script to $folder"
+			echo -e "Added code reference to to $folder"
 		fi;
 	done
 }
@@ -115,7 +115,7 @@ if [ $action = "install" ]; then
 	collectWhitelist # prompt the user for a whitelist of domains
 	stageSource # make a temporary derivative of the original source with the new whitelist
 	installScript # copy the staged code into the theme directories
-	# injectReferences # inject references to our .js into themes
+	injectReferences # inject references to our .js into themes
 	cleanupFiles
 elif [ $action = "remove" ]; then
 	enumerateThemes
