@@ -5,11 +5,13 @@ if [ ! -d ./core ]; then
 	echo -e "Tip: Leave this script where it is, but call it from the root of your Ghost installation."
 	exit 1
 else
-	echo -e "Directory check: [OK]"
+	echo -e "Directory check: OK"
 fi;
 if [ ! -d $(dirname $0)/ghost-external-links.js ]; then
 	echo -e "Exiting: could not find ghost-external-links.js in the script's directory."
 	exit
+else 
+	echo -e "File presence check: OK"
 fi;
 }
 
@@ -41,13 +43,16 @@ if [ $action = "install" ]; then
 	# injectReferences # inject references to our .js into themes
 elif [ $action = "remove" ]; then
 	enumerateThemes
-	removeScript
-	scrubReferences
+	# removeScript
+	# scrubReferences
+
 fi;
 
 
 #checks
-for item in ${dirs[*]};
-do
-    printf "   %s\n" $item
-done
+
+# broken for now, since we made dirs a local variable
+# for item in ${dirs[*]};
+# do
+#     printf "   %s\n" $item
+# done
