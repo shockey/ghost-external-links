@@ -59,7 +59,7 @@ stageSource ()
 	echo "Staging code with new whitelist"
 	mkdir ./ghost-external-links/staged
 	cp ./ghost-external-links/ghost-external-links.js ./ghost-external-links/staged/ghost-external-links.js
-	sed -i '' 's@// add your excluded domains here@'"$whitelistString"'@g' ./ghost-external-links/staged/ghost-external-links.jsf
+	sed -i '' 's@// add your excluded domains here@'"$whitelistString"'@g' ./ghost-external-links/staged/ghost-external-links.js
 }
 
 
