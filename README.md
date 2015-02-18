@@ -16,4 +16,4 @@ It also includes an easy-to-use installer that makes up for the lack of a Ghost 
 
 # Quick Remove
 1. Change directories to your Ghost root.
-2. Run the removal script: `./ghost-external-links/install.sh remove`.
+2. Run the removal script: `./ghost-external-links/install.sh`.
