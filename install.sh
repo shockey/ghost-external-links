@@ -75,7 +75,7 @@ installScript () {
 	cd ./content/themes
 	for folder in ${dirs[*]};
 	do
-		cp ../../staged/ghost-external-links.js $folder/assets/js/ghost-external-links.js
+		cp ../../ghost-external-links/staged/ghost-external-links.js $folder/assets/js/ghost-external-links.js
 		echo -e "Installed script to $folder"
 	done
 	cd ../../
