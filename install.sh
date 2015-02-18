@@ -87,7 +87,7 @@ injectReferences () {
 	for folder in ${dirs[*]};
 	do
 		if [ sed -i '' 's|.*'"</body>"'.*|'"<script type="text/javascript" src="/assets/js/ghost-external-links.js"></script>&|" content/themes/one/default.hbs ]; then
-			echo -e "Added code reference to to $folder"
+			echo -e "Added code reference to $folder"
 		fi;
 	done
 }
@@ -106,7 +106,7 @@ echo -e "Welcome to Ghost External Links!"
 echo -e "This installer assumes that you haven't modified anything since you downloaded the plugin."
 echo -e "If you've made changes, please redownload before continuing."
 echo
-echo "Please choose an action, type 'install' or 'remove': "
+echo "Please choose an action, 'install' or 'remove': "
 read action
 echo
 
