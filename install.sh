@@ -26,9 +26,22 @@ cd ../../
 echo -e 
 }
 
+collectWhitelist ()
+{
+	whitelist=()
+	echo "First, let's build a list of all the websites you want to whitelist."
+	echo "Type the domain name of the sites only: no http:// or slashes in the name."
+	echo "For example: 'google.com' is formatted correctly."
+	echo
+	while IFS= read -r -p "Enter an item (end with an empty line): " line; do
+	    [[ $line ]] || break  # break if line is empty
+	    whitelist+=("$line")
+	done
+}
+
 # make the magic happen
 
-checkdirectory
+# checkdirectory
 
 echo -e "Welcome to Ghost External Links!"
 echo "Please choose an action, type 'install' or 'remove': "
@@ -37,7 +50,7 @@ echo
 
 if [ $action = "install" ]; then
 	enumerateThemes
-	# collectWhitelist # prompt the user for a whitelist of domains
+	collectWhitelist # prompt the user for a whitelist of domains
 	# stageSource # make a temporary derivative of the original source with the new whitelist injected
 	# installScript # copy the staged code into the theme directories
 	# injectReferences # inject references to our .js into themes
