@@ -89,11 +89,12 @@ injectReferences () {
 		sed -i '' 's|.*'"</body>"'.*|'"<script type="text/javascript" src="/assets/js/ghost-external-links.js"></script>&|" $folder/default.hbs
 		echo -e "Added code reference to $folder"
 	done
+	cd ../../
 }
 
 cleanupFiles () {
 	read wait
-	rm ./ghost-external-links/staged/*
+	rm -r ./ghost-external-links/staged/
 	rmdir ./ghost-external-links/staged
 }
 
