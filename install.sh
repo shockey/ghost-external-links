@@ -7,7 +7,7 @@ if [ ! -d ./core ]; then
 else
 	echo -e "Directory check: OK"
 fi;
-if [ ! -d $(dirname $0)/ghost-external-links.js ]; then
+if [ ! -f ./ghost-external-links/ghost-external-links.js ]; then
 	echo -e "Exiting: could not find ghost-external-links.js in the script's directory."
 	exit
 else 
