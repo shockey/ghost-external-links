@@ -24,13 +24,22 @@ fi;
 
 enumerateThemes () 
 {
+echo -e "Enumerating themes..."
 dirs=();
 cd ./content/themes
 for file in ./*; do
 	dirs=(${dirs[@]} $file)
 done
 cd ../../
-echo -e 
+for item in ${dirs[*]};
+do
+	if [ $loopHasRun ]; then
+		themesString+=", "
+	fi;
+    themesString+="$item"
+    loopHasRun=true
+done
+echo -e "Themes detected: $themesString"
 }
 
 collectWhitelist ()
@@ -62,6 +71,15 @@ stageSource ()
 	sed -i '' 's@// add your excluded domains here@'"$whitelistString"'@g' ./ghost-external-links/staged/ghost-external-links.js
 }
 
+installScript () {
+	cd ./content/themes
+	for folder in ${dirs[*]};
+	do
+		cp ../../staged/ghost-external-links.js $folder/assets/js/ghost-external-links.js
+		echo -e "Installed script to $folder"
+	done
+	cd ../../
+}
 
 cleanupFiles () {
 	read wait
@@ -71,7 +89,7 @@ cleanupFiles () {
 
 # make the magic happen
 
-checkdirectory
+# checkdirectory
 
 echo -e "Welcome to Ghost External Links!"
 echo -e "This installer assumes that you haven't modified anything since you downloaded the plugin."
@@ -82,10 +100,10 @@ read action
 echo
 
 if [ $action = "install" ]; then
-	#enumerateThemes
+	enumerateThemes
 	collectWhitelist # prompt the user for a whitelist of domains
 	stageSource # make a temporary derivative of the original source with the new whitelist
-	# installScript # copy the staged code into the theme directories
+	installScript # copy the staged code into the theme directories
 	# injectReferences # inject references to our .js into themes
 	cleanupFiles
 elif [ $action = "remove" ]; then
