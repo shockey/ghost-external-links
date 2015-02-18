@@ -3,7 +3,8 @@ window.jQuery || document.write("<script src='https://ajax.googleapis.com/ajax/l
 $(document).ready(function() {
    $("a[href^=http]").each(function(){
       var excluded = [
-         // add your excluded domains here, like this: 'google.com', 'apple.com', 'myawesomeblog.com'
+         // format for whitelist: 'google.com', 'apple.com', 'myawesomeblog.com'
+         // add your excluded domains here
          ];
       for(i=0; i<excludes.length; i++) {
          if(this.href.indexOf(excluded[i]) != -1) {
