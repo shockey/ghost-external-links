@@ -1,5 +1,6 @@
 **Ghost External Links** uses jQuery to add the `target="_blank"` attribute to HTML links that don't match a whitelist, so they'll open in a new tab or window.
 
+It also includes an easy-to-use installer that makes up for the lack of a Ghost plugin engine.
 
 #Quick Start
 1. Clone this repository into your Ghost blog's root directory: `git clone https://github.com/kyleshockey/ghost-external-links.git`.
