@@ -1,4 +1,4 @@
-window.jQuery || document.write("<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'>\x3C/script>")
+window.jQuery || document.write("<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'>\x3C/script>");
 
 $(document).ready(function() {
    $("a[href^=http]").each(function(){
