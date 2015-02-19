@@ -138,8 +138,8 @@ if [ $action = "install" ]; then
 	cleanupFiles
 elif [ $action = "remove" ]; then
 	enumerateThemes
-	# removeScript
-	# scrubReferences
+	removeScript
+	scrubReferences
 else 
 	$action # else, try to call whatever was passed as a function
 fi;
