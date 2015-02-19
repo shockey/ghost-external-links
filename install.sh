@@ -95,7 +95,26 @@ injectReferences () {
 cleanupFiles () {
 	read wait
 	rm -r ./ghost-external-links/staged/
-	rmdir ./ghost-external-links/staged
+}
+
+removeScript () {
+	cd ./content/themes
+	for folder in ${dirs[*]};
+	do
+		rm $folder/assets/js/ghost-external-links.js
+		echo -e "Removed script from $folder"
+	done
+	cd ../../
+}
+
+scrubReferences () {
+	cd ./content/themes
+	for folder in ${dirs[*]};
+	do
+		sed 's/'"<script type="text/javascript" src="/assets/js/ghost-external-links.js"></script>"'//g' file
+		echo -e "Removed code reference from $folder"
+	done
+	cd ../../
 }
 
 # make the magic happen
