@@ -1,5 +1,3 @@
-*Note: this is still a work in progress! Don't expect everything to work quite yet. If you're interested in helping out, there's a todo list on the wiki.*
-
 **Ghost External Links** uses jQuery to add the `target="_blank"` attribute to HTML links that don't match a whitelist, so they'll open in a new tab or window.
 
 It also includes an easy-to-use installer that makes up for the lack of a Ghost plugin engine.
@@ -25,3 +23,6 @@ It also includes an easy-to-use installer that makes up for the lack of a Ghost 
 - Installer
   - Bash
   - sed
+
+# Contributions
+Contributions are welcome! Feel free to fork this repository and create a pull request for any changes you make. There's a todo list on the wiki.
