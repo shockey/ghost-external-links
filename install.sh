@@ -1,3 +1,4 @@
+#!/bin/bash
 checkdirectory () 
 {
 if [ ! -d ./core ]; then # checks for Ghost blog in current directory
