@@ -6,7 +6,7 @@ $(document).ready(function() {
          // format for whitelist: 'google.com', 'apple.com', 'myawesomeblog.com'
          // add your excluded domains here
          ];
-      for(i=0; i<excludes.length; i++) {
+      for(i=0; i<excluded.length; i++) {
          if(this.href.indexOf(excluded[i]) != -1) {
             return true;
          }
